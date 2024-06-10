@@ -13,7 +13,6 @@ const AddMovie = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    // Handle form submission
     const newMovie = { name: name, movie_image: movie_image, movie_video: movie_video, year: year, time: time, popularity: popularity, description: description };
     let { data } = await axios.post('/create', newMovie)
     console.log(data)

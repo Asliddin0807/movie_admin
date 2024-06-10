@@ -1,4 +1,3 @@
-import { mas } from "../components/movies";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
@@ -8,7 +7,6 @@ import axios from "axios";
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const history = useNavigate();
-  const [isVisible, setVisible] = useState(false);
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
 
@@ -43,6 +41,7 @@ const MovieDetailsPage = () => {
 
   const deleteHandler = async(id) => {
     const { data } = await axios.post(`/delete/${id}`)
+    console.log(data)
     history("/home");
   }
 
@@ -88,7 +87,7 @@ const MovieDetailsPage = () => {
                 <strong>Длительность:</strong> {movie.time} min
               </Card.Text>
               <div className="mb-2">
-                <Button className="mt-3 mx-3" onClick={() => setVisible(true)}>
+                <Button className="mt-3 mx-3">
                   Смотреть
                 </Button>
                 <Button className="mt-3 btn-danger mx-3" onClick={() => deleteHandler(id)}>Удалить</Button>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Carousel, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./movie.css";
-import { mas } from "../components/movies";
+
 import axios from "axios";
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
