@@ -27,7 +27,7 @@ const MoviesPage = () => {
   return (
     <div className="movies">
       <Container>
-        <h2 className="mt-3">Films</h2>
+        <h2 className="mt-3">Фильмы</h2>
         <Row className="mt-4">
           {movies.map((movie) => (
             <Col key={movie.id} lg={3} md={6} sm={12} className="mb-4">

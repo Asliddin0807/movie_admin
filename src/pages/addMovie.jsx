@@ -23,7 +23,7 @@ const AddMovie = () => {
       <Container>
         <Row className="justify-content-md-center mt-5">
           <Col md="6">
-            <h1>Add Movie</h1>
+            <h1>Добавить фильм</h1>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formTitle">
                 <Form.Label>Title</Form.Label>

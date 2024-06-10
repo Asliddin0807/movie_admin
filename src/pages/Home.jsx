@@ -15,7 +15,9 @@ const LoginPage = () => {
       if (response.status === 200) {
         console.log(response.data.data.token)
         window.localStorage.setItem('token', response.data.data.token)
+        window.localStorage.setItem('link', '/home')
         navigator('/home');
+
       } else if (response.status === 400) {
         alert('Ошибка: Неверные учетные данные');
       }
