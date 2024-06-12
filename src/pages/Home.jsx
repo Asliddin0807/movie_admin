@@ -1,6 +1,7 @@
-import axios from "axios";
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthService from "../service/auth";
 import './home.css'
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +12,8 @@ const LoginPage = () => {
     let newMas = { email: username, password: password }
     console.log(newMas)
     try {
-      let response = await axios.post('/login', newMas);
+      let response = await AuthService.auth(newMas);
+      console.log(response)
       if (response.status === 200) {
         console.log(response.data.data.token)
         window.localStorage.setItem('token', response.data.data.token)
