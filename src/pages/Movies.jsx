@@ -9,7 +9,7 @@ const MoviesPage = () => {
   const history = useNavigate();
 
   const apiHandler = async () => {
-    let { data } = await axios.get("/get");
+    let { data } = await axios.get("/movie");
     setMovies(data.data)
   };
 
