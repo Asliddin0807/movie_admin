@@ -1,10 +1,10 @@
-import axios from 'axios'
+import axios from "axios";
 
 const AuthService = {
-    async auth(param){
-        let data = await axios.post('/login', param)
-        return data
-    }
-}
+  async auth(param) {
+    let data = await axios.post("https://kino-1.onrender.com/login", param);
+    return data;
+  },
+};
 
-export default AuthService
+export default AuthService;
