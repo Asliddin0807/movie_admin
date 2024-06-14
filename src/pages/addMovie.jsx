@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "./add.css";
 const AddMovie = () => {
   const [name, setName] = useState("");
@@ -11,13 +12,18 @@ const AddMovie = () => {
   const [popularity, setPopularity] = useState("");
   const [description, setDesc] = useState("");
 
-  const handleSubmit = async(e) => {
-    e.preventDefault();
-    const newMovie = { name: name, movie_image: movie_image, movie_video: movie_video, year: year, time: time, popularity: popularity, description: description };
-    let { data } = await axios.post('/create', newMovie)
-    console.log(data)
-  };
-
+    // ------------------------------->
+    const navigation = useNavigate()
+    const handleSubmit = async(e) => {
+      let cap = year.length >= 4 ? year.slice(0, 4) : year
+      e.preventDefault();
+      const newMovie = { name: name, movie_image: movie_image, movie_video: movie_video, year: cap, time: time, popularity: popularity, description: description };
+      let response = await axios.post('/create', newMovie)
+      if(response.status == 200){
+        navigation('/home')
+      }
+    };
+    //------------------------------------>
   return (
     <div className="adding">
       <Container>
